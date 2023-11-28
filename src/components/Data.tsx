@@ -34,6 +34,72 @@ const Data = [
         stars: new Array(5).fill(1),
         reviewsCount: 467,
     },
+    {
+        title: "GFG Hoodie",
+        image:
+            "https://media.geeksforgeeks.org/wp-content/uploads/20230823165553/gfg2.jpg",
+        specs: ["Durable", "Light Weight", "Best Finish"],
+        features: ["Comfortable Straps", "Water Bottle pocket", "Weather Proof"],
+        newPrice: 599,
+        oldPrice: 999,
+        stars: new Array(5).fill(1),
+        reviewsCount: 467,
+    },
+    {
+        title: "GFG Hoodie",
+        image:
+            "https://media.geeksforgeeks.org/wp-content/uploads/20230823165623/gfg3.jpg",
+        specs: ["Sweat Fabric", "Attached Hood", "Kangaroo Pocket"],
+        features: ["Elastic Cuffs", "Light Weight", "Unisex"],
+        newPrice: 1299,
+        oldPrice: 1999,
+        stars: new Array(5).fill(1),
+        reviewsCount: 467,
+    },
+    {
+        title: "GFG Hoodie",
+        image:
+            "https://media.geeksforgeeks.org/wp-content/uploads/20230823165553/gfg2.jpg",
+        specs: ["Durable", "Light Weight", "Best Finish"],
+        features: ["Comfortable Straps", "Water Bottle pocket", "Weather Proof"],
+        newPrice: 599,
+        oldPrice: 999,
+        stars: new Array(5).fill(1),
+        reviewsCount: 467,
+    },
+    {
+        title: "GFG Hoodie",
+        image:
+            "https://media.geeksforgeeks.org/wp-content/uploads/20230823165623/gfg3.jpg",
+        specs: ["Sweat Fabric", "Attached Hood", "Kangaroo Pocket"],
+        features: ["Elastic Cuffs", "Light Weight", "Unisex"],
+        newPrice: 1299,
+        oldPrice: 1999,
+        stars: new Array(5).fill(1),
+        reviewsCount: 467,
+    },
+    {
+        title: "GFG Hoodie",
+        image:
+            "https://media.geeksforgeeks.org/wp-content/uploads/20230823165553/gfg2.jpg",
+        specs: ["Durable", "Light Weight", "Best Finish"],
+        features: ["Comfortable Straps", "Water Bottle pocket", "Weather Proof"],
+        newPrice: 599,
+        oldPrice: 999,
+        stars: new Array(5).fill(1),
+        reviewsCount: 467,
+    },
+    {
+        title: "GFG Hoodie",
+        image:
+            "https://media.geeksforgeeks.org/wp-content/uploads/20230823165623/gfg3.jpg",
+        specs: ["Sweat Fabric", "Attached Hood", "Kangaroo Pocket"],
+        features: ["Elastic Cuffs", "Light Weight", "Unisex"],
+        newPrice: 1299,
+        oldPrice: 1999,
+        stars: new Array(5).fill(1),
+        reviewsCount: 467,
+    },
 ]
 
 export default Data;

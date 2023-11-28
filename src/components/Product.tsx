@@ -22,7 +22,7 @@ const Product: React.FC<ProductProps> = ({
     reviewsCount,
 }) => {
     return (
-        <div className="w-full h-auto p-2 bg-white-200 border-2 border-slate-200 rounded-lg flex flex-row mx-auto mt-6">
+        <div className="w-full h-auto p-2 bg-white-200 border-2 border-slate-200 rounded-lg flex flex-row mx-auto mb-6">
             <div className="w-3/12 h-full">
                 <img className="pl-4 pt-2 w-72 h-full" src={image} alt="img" />
             </div>

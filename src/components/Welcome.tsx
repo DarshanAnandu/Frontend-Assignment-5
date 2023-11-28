@@ -3,7 +3,7 @@ import cart from '../assets/icons8-shopping-cart-64 (1).png';
 export default function Welcome() {
     return (
         <div className="h-16 w-full border-2  
-                        flex items-center  
+                        flex items-center sticky top-0
                         bg-emerald-500 text-white">
             <div className='flex-1 text-center'>
                 <p className="text-4xl block">
