@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .App {
   text-align: center;
 }
@@ -13,6 +18,19 @@
   }
 }
 
+.blurr {
+  border-radius: 338px;
+  background: rgba(249, 208, 63, 0.04);
+  box-shadow: 0px 4px 25px 0px rgba(249, 208, 63, 0.08);
+  filter: blur(60px);
+  width: 338px;
+  height: 338px;
+  flex-shrink: 0;
+}
+
+.h-58 {
+  height: 15rem;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
