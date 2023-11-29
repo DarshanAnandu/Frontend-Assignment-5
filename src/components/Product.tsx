@@ -3,23 +3,17 @@ import React from 'react';
 interface ProductProps {
     title: string;
     image: string;
-    specs: string[];
-    features: string[];
-    newPrice: number;
-    oldPrice: number;
-    stars: number[];
-    reviewsCount: number;
+    desc: string[];
+    Price: number;
+    // stars: number[];
 }
 
 const Product: React.FC<ProductProps> = ({
     title,
     image,
-    specs,
-    features,
-    newPrice,
-    oldPrice,
-    stars,
-    reviewsCount,
+    desc,
+    Price,
+    // stars,
 }) => {
     return (
         <div className="w-full h-auto p-2 bg-white-200 border-2 border-slate-200 rounded-lg flex flex-row mx-auto mb-6">
@@ -28,19 +22,13 @@ const Product: React.FC<ProductProps> = ({
             </div>
             <div className="w-6/12 h-full p-2 ">
                 <h3 className="pl-4 pt-2 text-2xl">{title}</h3>
-                <div className="px-4">
-                    {stars.map((e, index) => (
+                {/* <div className="px-4">
+                    {stars.map((_, index) => (
                         <i key={index} className="fa fa-star" style={{ color: 'green' }}></i>
                     ))}
-                    <span className="p-2">{reviewsCount}</span>
-                </div>
+                </div> */}
                 <div className="px-4">
-                    {specs.map((e, index) => (
-                        <span key={index}>{e} •</span>
-                    ))}
-                </div>
-                <div className="px-4">
-                    {features.map((e, index) => (
+                    {desc.map((e, index) => (
                         <span key={index}>{e} •</span>
                     ))}
                 </div>
@@ -49,14 +37,8 @@ const Product: React.FC<ProductProps> = ({
                 <div className="flex flex-row items-center ">
                     <h4 className="text-lg">
                         <span>&#8377;</span>
-                        {newPrice}
+                        {Price}
                     </h4>
-                    <span className="text-rose-400">
-                        <s>
-                            <span>&#8377;</span>
-                            {oldPrice}
-                        </s>
-                    </span>
                 </div>
                 <h6 className="text-success">Free shipping</h6>
                 <div className="flex flex-col mt-4">

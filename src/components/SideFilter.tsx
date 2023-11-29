@@ -37,7 +37,7 @@ const SideFilter = () => {
 
   return (
     <div className='h-screen w-full sticky top-20 bg-orange-300'>
-      <span>Filters</span>
+      <span>Filters</span> {/* if any filters selected the select filter should appear on the top of the filter with x(cancel symbol to cancel that filter) */}
 
       <div>
         <span>Category</span>
