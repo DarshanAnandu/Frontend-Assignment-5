@@ -58,3 +58,65 @@ body {
     transform: rotate(360deg);
   }
 }
+/* App.css */
+.switch-container {
+  display: flex;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.switch-label {
+  margin-right: 10px;
+}
+
+.switch {
+  position: relative;
+  width: 70px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "Pagination";
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  background-color: #f00;
+  transition: 0.4s;
+  border-radius: 34px;
+  color: #fff;
+}
+
+.switch input:checked + .slider:before {
+  content: "Infinite Scrolling";
+  left: 50%;
+}
+
+/* Added styles for slider-label */
+.slider-label {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}

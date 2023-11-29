@@ -7,6 +7,7 @@ const Sort = () => {
         { value: 'relevance', label: 'Relevance' },
         { value: 'lowToHigh', label: 'Price: Low to High' },
         { value: 'highToLow', label: 'Price: High to Low' },
+        { value: 'Ratings', label: 'Ratings' },
     ];
 
     const handleChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
