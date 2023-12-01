@@ -1,7 +1,5 @@
-// Import necessary libraries
 import React, { useState, useRef } from 'react';
 
-// Define the interface for ProductProps
 interface ProductProps {
     title: string;
     images: string[];
@@ -10,53 +8,86 @@ interface ProductProps {
     layoutType: 'default' | 'list' | 'grid';
 }
 
-// Define the Product component
 const Product: React.FC<ProductProps> = ({ title, images, desc, price, layoutType }) => {
-    // State to track the current image index
     const [currentImage, setCurrentImage] = useState(0);
-    // Ref for the image container
     const imageContainerRef = useRef<HTMLDivElement>(null);
 
-    // CSS classes for different layouts
     const layoutClasses = {
         default: 'w-full p-4 bg-white border-2 border-slate-200 rounded-lg flex flex-row mx-auto mb-6',
         list: 'w-full p-4 bg-white border-2 border-slate-200 rounded-lg flex flex-col mx-auto mb-6',
-        grid: 'w-full p-4 bg-white border-2 border-slate-200 rounded-lg sm:w-1/2 md:w-1/3 lg:w-1/3 xl:w-1/4 hover:shadow-lg transition-transform duration-500 transform hover:scale-105',
+        grid: 'w-full p-4 bg-white border-2 border-slate-200 rounded-lg sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/4 hover:shadow-lg transition-transform duration-500 transform hover:scale-105',
     };
 
-    // CSS classes for different image sizes
     const imageClasses = {
-        default: 'w-full h-40 sm:h-full object-cover rounded-lg',
-        list: 'w-full h-52 sm:h-full object-cover rounded-lg',
-        grid: 'w-full h-64 sm:h-full object-cover rounded-lg',
+        default: 'w-full h-64 object-fill rounded-lg',
+        list: 'w-full h-52 object-fill rounded-lg',
+        grid: 'w-full h-80 object-fill rounded-lg',
     };
 
-    // Function to handle image hover and rotation
     const handleImageHover = () => {
-        // Set interval to rotate images every 1.5 seconds
         const interval = setInterval(() => {
             setCurrentImage((prev) => (prev + 1) % images.length);
         }, 1500);
 
-        // Clear interval on mouse leave
         imageContainerRef.current?.addEventListener('mouseleave', () => {
             clearInterval(interval);
-            setCurrentImage(0);
         });
     };
 
-    // Return the JSX for the Product component
+    const handleDotClick = (index: number) => {
+        setCurrentImage(index);
+    };
+
+    const handleArrowClick = (direction: 'left' | 'right') => {
+        if (direction === 'left') {
+            setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
+        } else {
+            setCurrentImage((prev) => (prev + 1) % images.length);
+        }
+    };
+
     return (
         <div className={layoutClasses[layoutType]} onMouseEnter={handleImageHover}>
-            <div className={imageClasses[layoutType]} ref={imageContainerRef}>
-                <img className="w-full h-full object-cover rounded-lg transition-transform duration-500 transform hover:scale-105" src={images[currentImage]} alt={title} />
+            <div className={`relative ${imageClasses[layoutType]}`} ref={imageContainerRef}>
+                <img
+                    className="w-full h-full rounded-lg transition-transform duration-500 transform hover:scale-105"
+                    src={images[currentImage]}
+                    alt={title}
+                />
+                {images.length > 1 && (
+                    <>
+                        <div
+                            className="absolute top-0 bottom-0 left-0 right-0 flex items-center justify-between px-4"
+                            onClick={() => handleArrowClick('left')}
+                        >
+                            <span className="text-white text-3xl font-bold cursor-pointer">&lt;</span>
+                        </div>
+                        <div
+                            className="absolute top-0 bottom-0 right-0 flex items-center justify-between px-4"
+                            onClick={() => handleArrowClick('right')}
+                        >
+                            <span className="text-white text-3xl font-bold cursor-pointer">&gt;</span>
+                        </div>
+                        <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center space-x-2">
+                            {images.map((_, index) => (
+                                <div
+                                    key={index}
+                                    onClick={() => handleDotClick(index)}
+                                    className={`h-2 w-2 rounded-full bg-gray-400 ${currentImage === index ? 'bg-gray-800' : ''
+                                        } cursor-pointer`}
+                                ></div>
+                            ))}
+                        </div>
+                    </>
+                )}
             </div>
             <div className="w-full p-4">
                 <h3 className="text-lg md:text-xl lg:text-2xl font-semibold mb-2">{title}</h3>
                 <div className="flex flex-wrap mb-2">
                     {desc.map((e, index) => (
                         <span key={index} className="mr-2 text-gray-600">
-                            {e} •
+                            {e}
+                            {index < desc.length - 1 && ' • '}
                         </span>
                     ))}
                 </div>
@@ -67,23 +98,17 @@ const Product: React.FC<ProductProps> = ({ title, images, desc, price, layoutTyp
                     </h4>
                 </div>
                 <div className="flex flex-col mt-4 space-y-2">
-                    {/* <button
-                        className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2"
-                        type="button"
-                    >
-                        Buy Now
-                    </button> */}
                     <button
-                        className="text-black border-2 border-sky-600 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center"
+                        className="text-white bg-gradient-to-r from-sky-500 to-sky-700 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-6 py-3 text-center transition-all duration-300 hover:shadow-lg"
                         type="button"
                     >
-                        Add to wishlist
+                        Add to Wishlist
                     </button>
                 </div>
+
             </div>
         </div>
     );
 };
 
-// Export the Product component
 export default Product;
